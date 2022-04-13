@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Sign Up - CodeJava</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image: url('753.png');"     >
+
+        <div style="height: 10px;"></div>
+   
+ 
+
+    <div class="container text-center">
+   
+          
+        <div>
+          <h1> <p style="color:#000080;">Enter your login details</p></h1>
+        </div>
+        <form th:action="@{/login}" 
+            method="post" style="max-width: 600px; margin: 0 auto;">
+        <div class="m-3">
+        
+        <div style="height: 30px;">
+   
+   </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label"><h3><p style="color:#000080;">E-mail: </p></h3></label>
+                <div class="col-8">
+                    <input type="email"   id="email" name="email" class="form-control" required style="background-color: powderblue;" />
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <label class="col-4 col-form-label"><h3><p style="color:#000080;">Password: </p></h3></label>
+                <div class="col-8">
+                    <input type="password"   id="password" name="password" class="form-control" required style="background-color: powderblue;" />
+                </div>
+            </div>
+             
+             
+            <div class="form-actions">
+                <button type="submit" class="btn btn-danger">Login</button>
+            </div>
+            
+            
+        </div>
+        </form>
+         
+         <th style="text-align:center">   <h2><a href="/register"><p style="color:#000080;">New User? Register Here</p></a></h2></th>
+  
+    
+</body>
+</html>

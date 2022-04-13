@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NetmeteringModelStoreContainer" CdmEntityContainer="NetmeteringEntities">
+    <EntitySetMapping Name="Netmeterings">
+      <EntityTypeMapping TypeName="NetmeteringModel.Netmetering">
+        <MappingFragment StoreEntitySet="Netmetering">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="MonthlyConsumption" ColumnName="MonthlyConsumption" />
+          <ScalarProperty Name="NetConsumption" ColumnName="NetConsumption" />
+          <ScalarProperty Name="MonthlyBill" ColumnName="MonthlyBill" />
+          <ScalarProperty Name="BillAfterPlan" ColumnName="BillAfterPlan" />
+          <ScalarProperty Name="Savings" ColumnName="Savings" />
+          <ScalarProperty Name="payback" ColumnName="payback" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plants">
+      <EntityTypeMapping TypeName="NetmeteringModel.Plant">
+        <MappingFragment StoreEntitySet="Plant">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="KW" ColumnName="KW" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="No_of_panels" ColumnName="No of panels" />
+          <ScalarProperty Name="Rs_Watt" ColumnName="Rs/Watt" />
+          <ScalarProperty Name="Cost_of_Solar_Panel" ColumnName="Cost of Solar Panel" />
+          <ScalarProperty Name="Cost_of_Inverter" ColumnName="Cost of Inverter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="NetmeteringModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

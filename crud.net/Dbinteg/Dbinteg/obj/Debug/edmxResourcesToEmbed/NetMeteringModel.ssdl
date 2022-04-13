@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NetmeteringModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Netmetering">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Month" Type="nchar" MaxLength="10" />
+    <Property Name="MonthlyConsumption" Type="float" />
+    <Property Name="NetConsumption" Type="float" />
+    <Property Name="MonthlyBill" Type="money" />
+    <Property Name="BillAfterPlan" Type="money" />
+    <Property Name="Savings" Type="money" />
+    <Property Name="payback" Type="int" />
+  </EntityType>
+  <EntityType Name="Plant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="KW" Type="nchar" MaxLength="10" />
+    <Property Name="Area" Type="nchar" MaxLength="10" />
+    <Property Name="No of panels" Type="int" />
+    <Property Name="Rs/Watt" Type="int" />
+    <Property Name="Cost of Solar Panel" Type="int" />
+    <Property Name="Cost of Inverter" Type="int" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactNo" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="NetmeteringModelStoreContainer">
+    <EntitySet Name="Netmetering" EntityType="Self.Netmetering" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plant" EntityType="Self.Plant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,66 @@
+﻿@model Dbinteg.Plant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Plant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KW)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KW)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.No_of_panels)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.No_of_panels)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rs_Watt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rs_Watt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost_of_Solar_Panel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost_of_Solar_Panel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost_of_Inverter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost_of_Inverter)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NetmeteringModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Netmetering">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="MonthlyConsumption" Type="Double" />
+    <Property Name="NetConsumption" Type="Double" />
+    <Property Name="MonthlyBill" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BillAfterPlan" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Savings" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="payback" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Plant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="KW" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Area" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="No_of_panels" Type="Int32" />
+    <Property Name="Rs_Watt" Type="Int32" />
+    <Property Name="Cost_of_Solar_Panel" Type="Int32" />
+    <Property Name="Cost_of_Inverter" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="NetmeteringEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Netmeterings" EntityType="Self.Netmetering" />
+    <EntitySet Name="Plants" EntityType="Self.Plant" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+  </EntityContainer>
+</Schema>

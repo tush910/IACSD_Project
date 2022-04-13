@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+  
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image: url('1000.jpg');">
+<div>
+<img src="head.png" width="1520" height="150"></div>
+<div>
+    
+<div style="height: 100px;">
+   
+   </div>
+   
+ <div class="container text-center" >
+    <div   class="p-3 mb-2 bg-info text-white">
+         <h2> <a href="/plants"><p style="color:Purple;">Enter KW and Rs per Watt for Estimated cost</p></a>    </h2> 
+    </div>
+      </div>
+	
+   
+
+	
+<div class="row">
+<div class="container text-center" >
+			<form action="/plants" method="GET">
+			
+				<div class="col-25">
+				<div   class="p-3 mb-2 bg-secondary text-white" >
+				<h4>	<Label for="KW"><p style="color:white;">Enter the KW (Enter 2/3/5/7/8/10/12/15/20  all values are in KW)</p></Label></h4>
+			
+					<input type="text" th:value="${KW}" id="KW" name="KW" style="background-color: powderblue;" >
+				</div> </div>
+				
+				
+				<div class="col-25">
+				<div   class="p-3 mb-2 bg-info text-white" >
+				
+				<h3>	<Label for="RsPerWatt"><p style="color:Purple;">Enter the Rupees per watt (Enter 18/20/22 values are Rs per watt on the basis of solar panel)</p></Label></h3>
+				
+				
+				
+					<input type="text" th:value="${RsPerWatt}" id="RsPerWatt" name="RsPerWatt" style="background-color: powdeblue;">
+				</div></div>
+				
+				<div style="height: 20px;">
+   
+   </div>
+				
+				<div>
+					<input class="btn btn-danger" type="submit" value="Calculate" >
+					<input type="hidden" th:value="${plants}" th:name="plants">				
+				</div>
+				<div style="height: 40px;">
+   
+              </div>
+			</form></div>
+			
+		  
+   
+          <div class="container text-center" >
+
+
+           <table class="table table-striped">
+		<thead class="table-primary">
+			<tr>
+				<th style="text-align:center">S.No</th>
+			    <th style="text-align:center">KW</th> 
+			    <th style="text-align:center">Area in sq-m</th>
+			    <th style="text-align:center">No of Panels</th> 
+			    <th style="text-align:center">Rs/watt</th>
+			    <th style="text-align:center">Cost of Panels</th> 
+			    <th style="text-align:center">Cost of Inverter</th> 
+			    <th style="text-align:center">Miscellaneous Cost</th>  
+				<th style="text-align:center">Total Cost</th>
+				  
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr class= "table-info" th:each="list : ${plants}">	
+			     
+				<td style="text-align:center" th:text="${list.PlantId}" />
+				<td style="text-align:center" th:text="${list.KW}" />
+				<td style="text-align:center" th:text="${list.Area}" />
+				<td style="text-align:center" th:text="${list.panel}" />
+				<td style="text-align:center" th:text="${list.RsPerWatt}" />
+				<td style="text-align:center" th:text="${list.Cost_panels}" />
+				<td style="text-align:center" th:text="${list.Cost_Inverter}" />
+				<td style="text-align:center" th:text="${list.Cost_Others}" />
+				<td style="text-align:center" th:text="${list.Cost_Total}" />
+			  	
+													
+			
+				
+			</tr>
+		</tbody>		
+	</table>
+	</div>
+	
+	
+	
+	<div class="container text-center">
+	<div   class="p-3 mb-2 bg-info text-white">
+	    <h2><a href="/users"><p style="color:purple;">Home Page</p></a></h2>
+      </div>
+      
+       
+      
+ <div   class="p-3 mb-2 bg-info text-white">
+        <form th:action="@{/logout}" method="post">
+            <h3 style="color:purple;">
+               You can logout from here
+            </h3>
+            <input class="btn btn-danger" type="submit" value="Sign Out" />
+        </form>
+    </div>
+   </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>List Users</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image: url('1000.jpg');">
+
+<div>
+<img src="head.png" width="1520" height="150"></div>
+<div class="container text-center">
+   
+    
+  
+    
+<div   class="p-3 mb-2 bg-info text-white" >
+
+			<form action="/netmetering" method="GET">
+				<div class="col-25">
+				<h4>	<Label for="KW"><p style="color:purple;">Enter the KW to Check Net-Metering (Enter 1/5/10 in KW)</p></Label></h4>
+				</div>
+				
+				<div class="col-75">
+					<input type="text" th:value="${KW}" id="KW" name="KW">
+				</div> 
+				
+			</div>
+   <div style="height: 20px;">
+   
+              </div>
+   
+				
+				<div>
+					<input class="btn btn-danger" type="submit" value="Calculate">
+					<input type="hidden" th:value="${net}" th:name="net">				
+				</div>
+				
+			</form>
+			<div style="height: 50px;">
+                  
+              </div>
+			   <div style="height: 50px;">
+                  <img src="nt.png" width="1120" height="120">
+              </div>
+   
+          <div style="height:150px;">
+                  
+              </div>
+
+
+           <table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>S.No</th>
+			    <th>Month</th> 
+			    <th>Monthly-Consumption Before Solar Plant</th> 
+			    <th>Power Generation From Solar Plant</th> 
+			    <th>Net Consumption</th> 
+			    <th>Bill Before Solar Plant</th>
+			    <th>Bill After Solar Plant</th>
+			    <th>Savings</th> 
+			    <th>Payback In Years</th> 
+				
+				  
+			</tr>
+		</thead>
+		<tbody>
+			<tr class= "table-info" th:each="list : ${net}">
+			
+			<td th:text="${list.netid}" />
+			<td th:text="${list.month}" />
+			<td th:text="${list.monthly_load}" />
+			<td th:text="${list.generation}" />
+			<td th:text="${list.net_power}" />
+			<td th:text="${list.monthly_bill}" />
+			<td th:text="${list.net_bill}" />
+			<td th:text="${list.saving}" />
+			<td th:text="${list.payback}" />
+			</tr>
+			
+			</tbody>
+			
+			</table>
+			
+			
+			
+			
+	<div   class="p-3 mb-2 bg-info text-white">
+	    <h2><a href="/users"><p style="color:purple;">Home Page</p></a></h2>
+      </div>
+      
+       
+      
+ <div   class="p-3 mb-2 bg-info text-white">
+        <form th:action="@{/logout}" method="post">
+            <h3 style="color:purple;">
+               You can logout from here
+            </h3>
+            <input class="btn btn-danger" type="submit" value="Sign Out" />
+        </form>
+    </div>
+   
+		
+    
+    </div>
+    
+    
+    
+    
+    </body></html>

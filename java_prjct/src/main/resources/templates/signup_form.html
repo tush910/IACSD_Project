@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Sign Up - CodeJava</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image: url('753.png');"     >
+    <div class="container text-center">
+        <div>
+          <h1> <p style="color:white;">User Registration - Sign Up</p></h1>
+        </div>
+        <form th:action="@{/process_register}" th:object="${user}"
+            method="post" style="max-width: 600px; margin: 0 auto;">
+        <div class="m-3">
+        
+        <div style="height: 30px;">
+   
+   </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label"><h3><p style="color:white;">E-mail: </p></h3></label>
+                <div class="col-8">
+                    <input type="email" th:field="*{email}" class="form-control" required style="background-color: powderblue;" />
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <label class="col-4 col-form-label"><h3><p style="color:white;">Password: </p></h3></label>
+                <div class="col-8">
+                    <input type="password" th:field="*{password}" class="form-control" required style="background-color: powderblue;"/>
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <label class="col-4 col-form-label"><h3><p style="color:white;">First Name: </p></h3></label>
+                <div class="col-8">
+                    <input type="text" th:field="*{firstName}" class="form-control"
+                            required minlength="2" maxlength="20" style="background-color: powderblue;"/>
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <label class="col-4 col-form-label"><h3><p style="color:white;">Last Name: </p></h3></label>
+                <div class="col-8">
+                    <input type="text" th:field="*{lastName}" class="form-control"
+                             minlength="2" maxlength="20" style="background-color: powderblue;"/>
+                </div>
+            </div>
+            
+             <div class="form-group row">
+                <label class="col-4 col-form-label"><h3><p style="color:white;">Address: </p></h3></label>
+                <div class="col-8">
+                    <input type="text" th:field="*{address}" class="form-control"
+                            required minlength="2" maxlength="20" style="background-color: powderblue;"/>
+                </div>
+                 </div>
+                                
+                 <div class="form-group row">
+                <label class="col-4 col-form-label"><h3><p style="color:white;">City: </p></h3></label>
+                <div class="col-8">
+                    <input type="text" th:field="*{city}" class="form-control"
+                            required minlength="2" maxlength="20" style="background-color: powderblue;"/>
+                </div>
+                </div>
+                
+                 <div class="form-group row">
+                <label class="col-4 col-form-label"><h3><p style="color:white;">Mobile: </p></h3></label>
+                <div class="col-8">
+                    <input type="text" th:field="*{mobile}" class="form-control"
+                            required minlength="2" maxlength="20" style="background-color: powderblue;"/>
+                </div>
+                </div>
+             
+             
+            <div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Users Account</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image: url('1000.jpg');">
+<div>
+<img src="head.png" width="1520" height="150"></div>
+<div>
+    
+
+   
+    
+   
+    
+    
+  <!--    <div>
+        <h1 style="color:blue;">Welcome to Your Page</h1> 
+    </div>-->
+    
+   <div class="container text-center" style="background-color: skyblue;">
+      <h1 style="color:#000080; height: 60px;">Welcome to your Account</h1> 
+     </div> 
+     <div style="height: 90px;">
+   
+   </div>
+     
+   <div class="container text-center">
+        <table  class="table table-striped">
+            <thead >
+                <tr style="background-color: #000080;">
+                    <th style="text-align:center" ><h5 style="color:white;">User ID</h5></th>
+                    <th style="text-align:center" ><h5 style="color:white;">First Name</h5></th>
+                    <th style="text-align:center" ><h5 style="color:white;">Last Name</h5></th>
+                    <th style="text-align:center" ><h5 style="color:white;">Address</h5></th>
+                    <th style="text-align:center" ><h5 style="color:white;">City</h5></th>
+                    <th style="text-align:center" ><h5 style="color:white;">Contact</h5></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: powderblue;">
+                   <td style="text-align:center; font-size:20px; color:#000080"  th:text="${currentUser.id}"></td>
+                    <td style="text-align:center; font-size:20px; color:#000080" th:text="${currentUser.firstName}"></td>
+                    <td style="text-align:center; font-size:20px; color:#000080" th:text="${currentUser.lastName}"></td>
+                    <td style="text-align:center; font-size:20px; color:#000080" th:text="${currentUser.address}"></td>
+                    <td style="text-align:center; font-size:20px; color:#000080" th:text="${currentUser.city}"></td>
+                    <td style="text-align:center; font-size:20px; color:#000080" th:text="${currentUser.mobile}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+     <div style="height: 90px;">
+   
+   </div>
+    
+    <div class="container text-center" >
+    <div   class="p-3 mb-2 bg-info text-white">
+         <h2> <a href="/plants"><p style="color:Purple;">Click here to find the cost estimation of solar power plant</p></a>    </h2> 
+    </div>
+      </div>
+     
+     
+       <div class="container text-center">
+       <div   class="p-3 mb-2 bg-info text-white">
+         <h2> <a href="/netmetering"><p style="color:Purple;">Click here to check the net metering calulations </p></a></h2> 
+    </div></div>
+ <div style="height: 200px;">
+   
+   </div>
+ 
+  <div   class="p-3 mb-2 bg-primary text-white">
+  <div class="container text-center">
+        <form th:action="@{/logout}" method="post">
+            <h3 style="color:white;">
+               You can logout from here
+            </h3>
+            <input class="btn btn-danger" type="submit" value="Sign Out" />
+        </form>
+    </div>
+    </div>
+ 
+</body>
+</html>

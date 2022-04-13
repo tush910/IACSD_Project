@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Dbinteg.Plant>
+
+@{
+    ViewBag.Title = "Solar Plant & Netmetering";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KW)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.No_of_panels)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rs_Watt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost_of_Solar_Panel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost_of_Inverter)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KW)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.No_of_panels)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rs_Watt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost_of_Solar_Panel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost_of_Inverter)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+

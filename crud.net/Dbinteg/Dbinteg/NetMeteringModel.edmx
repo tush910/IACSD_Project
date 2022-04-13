@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NetmeteringModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Netmetering">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Month" Type="nchar" MaxLength="10" />
+          <Property Name="MonthlyConsumption" Type="float" />
+          <Property Name="NetConsumption" Type="float" />
+          <Property Name="MonthlyBill" Type="money" />
+          <Property Name="BillAfterPlan" Type="money" />
+          <Property Name="Savings" Type="money" />
+          <Property Name="payback" Type="int" />
+        </EntityType>
+        <EntityType Name="Plant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="KW" Type="nchar" MaxLength="10" />
+          <Property Name="Area" Type="nchar" MaxLength="10" />
+          <Property Name="No of panels" Type="int" />
+          <Property Name="Rs/Watt" Type="int" />
+          <Property Name="Cost of Solar Panel" Type="int" />
+          <Property Name="Cost of Inverter" Type="int" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="NetmeteringModelStoreContainer">
+          <EntitySet Name="Netmetering" EntityType="Self.Netmetering" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plant" EntityType="Self.Plant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NetmeteringModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Netmetering">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MonthlyConsumption" Type="Double" />
+          <Property Name="NetConsumption" Type="Double" />
+          <Property Name="MonthlyBill" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BillAfterPlan" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Savings" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="payback" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Plant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="KW" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="No_of_panels" Type="Int32" />
+          <Property Name="Rs_Watt" Type="Int32" />
+          <Property Name="Cost_of_Solar_Panel" Type="Int32" />
+          <Property Name="Cost_of_Inverter" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="NetmeteringEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Netmeterings" EntityType="Self.Netmetering" />
+          <EntitySet Name="Plants" EntityType="Self.Plant" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NetmeteringModelStoreContainer" CdmEntityContainer="NetmeteringEntities">
+          <EntitySetMapping Name="Netmeterings">
+            <EntityTypeMapping TypeName="NetmeteringModel.Netmetering">
+              <MappingFragment StoreEntitySet="Netmetering">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="MonthlyConsumption" ColumnName="MonthlyConsumption" />
+                <ScalarProperty Name="NetConsumption" ColumnName="NetConsumption" />
+                <ScalarProperty Name="MonthlyBill" ColumnName="MonthlyBill" />
+                <ScalarProperty Name="BillAfterPlan" ColumnName="BillAfterPlan" />
+                <ScalarProperty Name="Savings" ColumnName="Savings" />
+                <ScalarProperty Name="payback" ColumnName="payback" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plants">
+            <EntityTypeMapping TypeName="NetmeteringModel.Plant">
+              <MappingFragment StoreEntitySet="Plant">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="KW" ColumnName="KW" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="No_of_panels" ColumnName="No of panels" />
+                <ScalarProperty Name="Rs_Watt" ColumnName="Rs/Watt" />
+                <ScalarProperty Name="Cost_of_Solar_Panel" ColumnName="Cost of Solar Panel" />
+                <ScalarProperty Name="Cost_of_Inverter" ColumnName="Cost of Inverter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="NetmeteringModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
